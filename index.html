@@ -1,0 +1,136 @@
+<html>
+<html lang="en">
+
+<head>
+    <tit <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <style type="text/css">
+        body {
+            background: rgb(216, 215, 213) !important;
+        }
+    </style>
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+                    <li><a href="https://github.com/karitthorn/AI-Stethoscope"
+                            class="nav-link px-2 text-white">github</a></li>
+                    <li><a href="https://aistethoscope.000webhostapp.com/index.html"
+                            class="nav-link px-2 text-white">Reload</a></li>
+                </ul>
+
+
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+    <!----------------------------------------------------------------->
+    <center>
+
+
+        <h1>AI Stethoscope</h1>
+        <p></p>
+        <br><br>
+        <button type="button" class="btn btn-lg btn-primary w-99 mx-0 mb-2 " onclick="init()">เริ่มต้น</button>
+        <div id="label-container"></div>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands@0.4.0/dist/speech-commands.min.js"></script>
+
+        <script type="text/javascript">
+            // more documentation available at
+            // https://github.com/tensorflow/tfjs-models/tree/master/speech-commands
+
+            // the link to your model provided by Teachable Machine export panel
+            const URL = "https://teachablemachine.withgoogle.com/models/g8YWd745k/";
+
+            async function createModel() {
+                const checkpointURL = URL + "model.json"; // model topology
+                const metadataURL = URL + "metadata.json"; // model metadata
+
+                const recognizer = speechCommands.create(
+                    "BROWSER_FFT", // fourier transform type, not useful to change
+                    undefined, // speech commands vocabulary feature, not useful for your models
+                    checkpointURL,
+                    metadataURL);
+
+                // check that model and metadata are loaded via HTTPS requests.
+                await recognizer.ensureModelLoaded();
+
+                return recognizer;
+            }
+
+            async function init() {
+                const recognizer = await createModel();
+                const classLabels = recognizer.wordLabels(); // get class labels
+                const labelContainer = document.getElementById("label-container");
+                for (let i = 0; i < classLabels.length; i++) {
+                    labelContainer.appendChild(document.createElement("div"));
+                }
+
+                // listen() takes two arguments:
+                // 1. A callback function that is invoked anytime a word is recognized.
+                // 2. A configuration object with adjustable fields
+                recognizer.listen(result => {
+                    const scores = result.scores; // probability of prediction for each class
+                    // render the probability scores per class
+                    for (let i = 0; i < classLabels.length; i++) {
+                        const classPrediction = classLabels[i] + ": " + result.scores[i].toFixed(2);
+                        labelContainer.childNodes[i].innerHTML = classPrediction;
+                    }
+                }, {
+                    includeSpectrogram: true, // in case listen should return result.spectrogram
+                    probabilityThreshold: 0.75,
+                    invokeCallbackOnNoiseAndUnknown: true,
+                    overlapFactor: 0.50 // probably want between 0.5 and 0.75. More info in README
+                });
+
+                // Stop the recognition in 5 seconds.
+                // setTimeout(() => recognizer.stopListening(), 5000);
+                // https://teachablemachine.withgoogle.com/models/g8YWd745k/
+            }
+        </script>
+        <br><br>
+        <h2>AI ตรวจสอบเสียงจาก Stethoscope กด"เริ่มต้น"เพื่อตรวจสอบ</h2>
+        <br>
+        <h4>By Karitthorn Bamrungpipattanporn</h4>
+        <br><br>
+        <img
+            src="https://lh3.googleusercontent.com/Z5tKzYJq3HqGmGS1edLcOH7-9Aho4-nm1IzrTRAYkSbBkhSFfx-ciPoCjCInqfiuTZvDFSKBCOC7cT8XPNcFyU8hR00s05ZOwzjP1S0BxPFv79S-JDP_N4R-ZmnTGeu_7TiOakgeFjPx5yQWw0w8vCAVNyZQmBd4S3VzYjTIm1oXWoAeLbkW5dcQUdtil6C7x9xT7xbD7eQ9RACxiheIFye8JD7d2Srzrs8hHGeSYQ83PpNEX4ISSMW6S2wTfpwoiTFoUI8-P_yvSzyhNo8puyh7646b8vqasE9Nw-b0mF-SrXcO2sybynw92m9T8t1DiPESy1wIIuN3XOhZUuUa1WPmJHp4DwJKZWGPJ_TEFTwkqkLaz8Bh-KvLCcAnM8y0lzsKbI29GwNmxVLFl1glFfE-tmH5uGaBLSfnN0Hb9V4j6XmuPaTExsyQrvic2pBG_759apmgxPdHIZtgqwR6aYTklJD9IWC2VJlVDOuJd83sZiKAX16B3TjyGuL9CwusqPc-7Do5cSkTNN0b3HRCnspddrQZ0pQVkkWvlEtFMKsD4pkvxwyLU7B-maP7tBah9_hXz7If_55qyXrHc5nVTqhEhsVIiWOJ_2iiDs7TVQUM2m5R2waqW_j7441dIFaThXECZ_jlTFOPEPxRRD77lV4bqJr5siGm6ecdj6RW3xdLrw7fP-r52-ixRI6QuwRD2fhyXR_Q41VrbPC6p1OdS8C1vg=w650-h919-no?authuser=0">
+
+
+
+
+    </center>
+
+
+</body>
+
+</html>
