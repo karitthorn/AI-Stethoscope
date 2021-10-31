@@ -19,6 +19,10 @@
  ![m_ehaa657f1](https://user-images.githubusercontent.com/56643494/139571577-afd3f93d-3ca6-404a-9654-7d2d1b329acc.jpg)
 ![postgradmedj-2020-July-96-1137-431-F1 medium](https://user-images.githubusercontent.com/56643494/139571579-191943ba-b71c-4d36-9388-0cfbf13d2c92.gif)
 
+Case ตัวอย่าง
+
+![unknown](https://user-images.githubusercontent.com/56643494/139571784-34a4ae62-b9fb-41e4-943e-811143a898e2.png)
+
  # หลักการ
 สร้าง AI ด้วย teachable machine เเล้ว export ออกมาเป็น  javascript นำมาใช้ใน HTML เเละ CSS เพื่อให้หน้า UI สวยงาม
 
