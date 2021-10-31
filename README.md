@@ -4,11 +4,8 @@
 
 สำหรับใครที่ ขี้เกียจอ่าน ก็ไปดูเป็นคลิปได้ ----> [Youtube](https://www.youtube.com/watch?v=fNUpM3LG_wk)
 
-<iframe width="1024" height="576" src="https://www.youtube.com/embed/fNUpM3LG_wk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ![image](https://user-images.githubusercontent.com/56643494/139571388-de38222b-31d0-41bc-be9e-becbc6eb0499.png)
-
-
 
 
 ซึ่งผมได้นำ Stethoscope มาต่อกับไมค์ เพื่อทดลองในครั้งนี้
@@ -16,8 +13,13 @@
 ![image](https://user-images.githubusercontent.com/56643494/139571302-695ab1fd-1eef-40e9-bcfe-f5124068cd1e.png)
 
 # Why
-เพราะสามารถทำให้คนไข้ตรวจจากสถานที่กักตัว เพิ่มปัจจัยในการตรวจว่าโควิดลงปอดรึยัง เเพทย์ไม่ต้องใช้หูฟังสัมผัสคนไข้โดยไม่จำเป็น
-# หลักการ
+เพราะสามารถทำให้คนไข้ตรวจจากสถานที่กักตัว เพิ่มปัจจัยในการตรวจว่าโควิดลงปอดรึยังเพราะ Stethoscope สามารถตรวจได้ว่า โควิดลงปอดรึยัง เเละ เเพทย์ไม่ต้องใช้หูฟังสัมผัสคนไข้โดยไม่จำเป็น ไม่ต้องถอดชุด PEE
+ เพื่อใช้ Stethoscope 
+ 
+ ![m_ehaa657f1](https://user-images.githubusercontent.com/56643494/139571577-afd3f93d-3ca6-404a-9654-7d2d1b329acc.jpg)
+![postgradmedj-2020-July-96-1137-431-F1 medium](https://user-images.githubusercontent.com/56643494/139571579-191943ba-b71c-4d36-9388-0cfbf13d2c92.gif)
+
+ # หลักการ
 สร้าง AI ด้วย teachable machine เเล้ว export ออกมาเป็น  javascript นำมาใช้ใน HTML เเละ CSS เพื่อให้หน้า UI สวยงาม
 
 DATA ที่ใช้สร้าง    
