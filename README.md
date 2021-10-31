@@ -1,6 +1,8 @@
 # AI-Stethoscope
 [AI Stethoscope](https://aistethoscope.000webhostapp.com/index.html) คือ AI ที่สามารถวิเคราะเสียงได้ว่า เสียงใน Stethoscope หรือ หูฟังหมอ  เนี่ยเป็นเสียงอะไร
 เพื่อเเยกว่ามีโรครึเปล่า หรือว่าเสียงตรงไหนผิดปกติรึเปล่า
+![stethoscope](https://user-images.githubusercontent.com/56643494/139571962-97c17239-4ce4-4411-b27c-007936e8feb5.png)
+
 
 สำหรับใครที่ ขี้เกียจอ่าน ก็ไปดูเป็นคลิปได้ ----> [Youtube](https://www.youtube.com/watch?v=fNUpM3LG_wk)
 
